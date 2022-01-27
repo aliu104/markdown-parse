@@ -1,1 +1,1 @@
-[(this will cause another error)
+[(this is [a] (link)](https://google.com)
