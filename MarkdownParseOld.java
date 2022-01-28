@@ -12,14 +12,33 @@ public class MarkdownParseOld {
         // find the next [, then find the ], then find the (, then take up to
         // the next )
         int currentIndex = 0;
-
         while(currentIndex < markdown.length()) {
             int nextOpenBracket = markdown.indexOf("[", currentIndex);
             int nextCloseBracket = markdown.indexOf("]", nextOpenBracket);
-            int openParen = markdown.indexOf("(", nextCloseBracket);
-            int closeParen = markdown.indexOf(")", openParen);
-            toReturn.add(markdown.substring(openParen + 1, closeParen));
-            currentIndex = closeParen + 1;
+
+            if (nextOpenBracket == -1 || nextCloseBracket == -1) {
+                break;
+            }
+
+            if (nextCloseBracket != markdown.length()-1 && markdown.substring(nextCloseBracket+1, nextCloseBracket+2).equals("(")) {
+                int openParen = markdown.indexOf("(", nextCloseBracket);
+                int closeParen = markdown.indexOf(")", openParen);
+
+                if (closeParen == -1) {
+                    break;
+                }
+
+                toReturn.add(markdown.substring(openParen + 1, closeParen));
+                currentIndex = closeParen + 1;
+
+                System.out.println("CI: " + currentIndex + 
+                                ", [: " + nextOpenBracket +
+                                ", ]: " + nextCloseBracket +
+                                ", (: " + openParen +
+                                ", ): " + closeParen);
+            } else {
+                currentIndex = nextCloseBracket+1;
+            }
         }
         return toReturn;
     }

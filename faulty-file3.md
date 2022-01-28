@@ -1,0 +1,1 @@
+[(this will cause a third error)](some-unclosed-link.com
