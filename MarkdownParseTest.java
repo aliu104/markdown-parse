@@ -76,7 +76,8 @@ public class MarkdownParseTest {
     @Test
     public void testFile9() throws IOException {
         String contents = Files.readString(Path.of("./faulty-file1.md"));
-        List<String> expect = List.of("wrong assertion");
-        assertEquals(MarkdownParse.getLinks(contents), expect); // wrong assertion, should give failed test
+        // List<String> expect = List.of("wrong assertion"); // wrong assertion, should give failed test
+        List<String> expect = List.of();
+        assertEquals(MarkdownParse.getLinks(contents), expect); // should fix wrong assertion
     }
 }
