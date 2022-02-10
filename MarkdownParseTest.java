@@ -81,10 +81,10 @@ public class MarkdownParseTest {
         assertEquals(MarkdownParse.getLinks(contents), expect); // should fix wrong assertion
     }
 
-    @Test
-    public void testFile10() throws IOException {
-        String contents = Files.readString(Path.of("./faulty-file5.md"));
-        List<String> expect = List.of("https://google.com");
-        assertEquals(MarkdownParse.getLinks(contents), expect); 
-    }
+    // @Test
+    // public void testFile10() throws IOException {
+    //     String contents = Files.readString(Path.of("./faulty-file5.md"));
+    //     List<String> expect = List.of("https://google.com");
+    //     assertEquals(MarkdownParse.getLinks(contents), expect); 
+    // }
 }
