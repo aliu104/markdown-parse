@@ -84,7 +84,7 @@ public class MarkdownParseTest {
     @Test
     public void testSnip1() throws IOException {
         String contents = Files.readString(
-            Path.of("/home/linux/ieng6/cs15lwi22/cs15lwi22amh/cse15l-wk8-lab4/snippet-1.md"));
+            Path.of("./test-files/snippet-1.md"));
         List<String> expect = List.of("`google.com", "google.com", "ucsd.edu");
         assertEquals(expect, MarkdownParse.getLinks(contents));
     }
@@ -92,7 +92,7 @@ public class MarkdownParseTest {
     @Test
     public void testSnip2() throws IOException {
         String contents = Files.readString(
-            Path.of("/home/linux/ieng6/cs15lwi22/cs15lwi22amh/cse15l-wk8-lab4/snippet-2.md"));
+            Path.of("./test-files/snippet-2.md"));
         List<String> expect = List.of("a.com", "a.com(())", "example.com");
         assertEquals(expect, MarkdownParse.getLinks(contents));
     }
@@ -100,7 +100,7 @@ public class MarkdownParseTest {
     @Test
     public void testSnip3() throws IOException {
         String contents = Files.readString(
-            Path.of("/home/linux/ieng6/cs15lwi22/cs15lwi22amh/cse15l-wk8-lab4/snippet-3.md"));
+            Path.of("./test-files/snippet-3.md"));
         List<String> expect = List.of("https://ucsd-cse15l-w22.github.io/");
         assertEquals(expect, MarkdownParse.getLinks(contents));
     }
